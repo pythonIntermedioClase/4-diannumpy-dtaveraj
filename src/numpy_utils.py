@@ -141,7 +141,11 @@ def filtrar_valores_en_rango(valores_lista, minimo, maximo):
     # 2. Recorre valores_lista con un ciclo for
     # 3. Si minimo <= valor <= maximo, agrégalo con .append()
     # 4. Retorna la lista acumulada
-    pass
+    lista = [] 
+    for valor in valores_lista:
+        if minimo <= valor <= maximo:
+            lista.append(valor)
+    return lista
 
 
 # ===========================================================================
@@ -165,7 +169,7 @@ def obtener_rango(arr, inicio, fin):
         -> array([      0., 2300000.,  950000.])
     """
     # TODO: usa slicing con arr[inicio:fin]
-    pass
+    return arr[inicio:fin]
 
 
 def obtener_ultimos(arr, n):
@@ -184,7 +188,7 @@ def obtener_ultimos(arr, n):
         -> array([ 450000., 1100000.])  (últimos 3 elementos)
     """
     # TODO: usa indexación negativa arr[-n:]
-    pass
+    return array [-n:]
 
 
 def invertir_array(arr):
@@ -202,7 +206,7 @@ def invertir_array(arr):
         -> array([4, 3, 2, 1])
     """
     # TODO: usa slicing con paso -1: arr[::-1]
-    pass
+    return arr[::-1]
 
 
 # ===========================================================================
