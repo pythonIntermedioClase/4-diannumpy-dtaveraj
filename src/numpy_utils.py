@@ -303,7 +303,7 @@ def calcular_variacion_absoluta(valores_actuales, valores_anteriores):
         -> array([200000., 100000.,      0.])
     """
     # TODO: usa np.abs(valores_actuales - valores_anteriores)
-    pass
+    return np.abs(valores_actuales - valores_anteriores)
 
 
 def normalizar_valores(arr):
@@ -326,7 +326,11 @@ def normalizar_valores(arr):
     """
     # TODO: calcula minimo = arr.min(), maximo = arr.max()
     #       retorna (arr - minimo) / (maximo - minimo)
-    pass
+    minimo = arr.min()
+    maximo = arr.max()
+    if minimo == maximo:
+        return np.zeros_like(arr, dtype=float)
+    return (arr - minimo) / (maximo - minimo)
 
 
 def aplicar_raiz_cuadrada(arr):
@@ -346,7 +350,7 @@ def aplicar_raiz_cuadrada(arr):
         -> array([  0.      , 316.22...,  632.45...,  948.68...])
     """
     # TODO: usa np.sqrt(arr)
-    pass
+    return np.sqrt(arr)
 
 
 # ===========================================================================
@@ -376,8 +380,11 @@ def contar_con_ciclo(lista, umbral):
     # 2. Recorre lista con un ciclo for
     # 3. Si valor > umbral, suma 1 a contador
     # 4. Retorna contador
-    pass
-
+    contador = 0
+    for l in lista:
+        if l > umbral:
+            contador = contador+1
+    return contador 
 
 def sumar_con_ciclo(lista):
     """
@@ -401,7 +408,10 @@ def sumar_con_ciclo(lista):
     # 2. Recorre lista con un ciclo for
     # 3. Suma cada valor a total
     # 4. Retorna total
-    pass
+    total = 0
+    for valor in lista:
+        total = total + valor
+    return total
 
 
 def obtener_mascara_mora(dias_mora):
@@ -419,7 +429,7 @@ def obtener_mascara_mora(dias_mora):
         -> array([False,  True, False,  True])
     """
     # TODO: retorna dias_mora > 0
-    pass
+    return dias_mora > 0
 
 
 def filtrar_valores_con_mora(valores, dias_mora):
@@ -446,7 +456,8 @@ def filtrar_valores_con_mora(valores, dias_mora):
     # TODO:
     # 1. Crea la máscara: mascara = dias_mora > 0
     # 2. Retorna valores[mascara]
-    pass
+    mascara = dias_mora > 0
+    return valores[mascara]
 
 
 def contar_sobre_umbral(arr, umbral):
@@ -468,7 +479,9 @@ def contar_sobre_umbral(arr, umbral):
     # 1. Crea la máscara: mascara = arr > umbral
     # 2. Cuenta los True con cantidad = np.sum(mascara)
     # 3. Retorna int(cantidad)
-    pass
+    mascara = arr > umbral
+    cantidad = np.sum(mascara)
+    return int(cantidad)
 
 
 # ===========================================================================
